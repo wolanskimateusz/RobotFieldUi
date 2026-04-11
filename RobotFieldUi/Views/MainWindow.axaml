@@ -1,20 +1,67 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:RobotFieldUi.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RobotFieldUi.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Width="1200" Height="800"
         Title="RobotFieldUi">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    <Grid RowDefinitions="28,28,48,*,24">
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <!-- Row 0: TitleBar -->
+        <Border Grid.Row="0" Background="#12121F">
+            <TextBlock Text="Robot Field UI"
+                       Foreground="White"
+                       VerticalAlignment="Center" Margin="8,0"/>
+        </Border>
 
+        <!-- Row 1: Menu -->
+        <Border Grid.Row="1" Background="#2A2A3E">
+            <TextBlock Text="[ MENU ]"
+                       Foreground="#94A3B8"
+                       VerticalAlignment="Center" Margin="8,0"/>
+        </Border>
+
+        <!-- Row 2: Ribbon -->
+        <Border Grid.Row="2" Background="#313145">
+            <TextBlock Text="[ WSTĄŻKA ]"
+                       Foreground="#94A3B8"
+                       VerticalAlignment="Center" Margin="8,0"/>
+        </Border>
+
+        <!-- Row 3: Główny obszar -->
+        <Grid Grid.Row="3" ColumnDefinitions="200,*,48">
+
+            <!-- Drzewko -->
+            <Border Grid.Column="0" Background="#2A2A3E">
+                <TextBlock Text="[ DRZEWKO ]"
+                           Foreground="#94A3B8"
+                           Margin="8"/>
+            </Border>
+
+            <!-- Canvas -->
+            <Border Grid.Column="1" Background="#0F0F1A">
+                <TextBlock Text="[ OBSZAR EDYCJI ]"
+                           Foreground="#94A3B8"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+
+            <!-- Narzędzia -->
+            <Border Grid.Column="2" Background="#2A2A3E">
+                <TextBlock Text="N"
+                           Foreground="#94A3B8"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+
+        </Grid>
+
+        <!-- Row 4: Stopka -->
+        <Border Grid.Row="4" Background="#12121F">
+            <TextBlock Text="Skala: 1:1  |  X: 0  Y: 0  |  m"
+                       Foreground="#94A3B8"
+                       VerticalAlignment="Center" Margin="8,0"
+                       FontSize="11"/>
+        </Border>
+
+    </Grid>
 </Window>
