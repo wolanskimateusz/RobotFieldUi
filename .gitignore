@@ -1,0 +1,42 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docview
+
+# Rider
+.idea/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+project.lock.json
+
+# NuGet
+packages/
+*.nupkg
+.nuget/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Avalonia designer cache
+**/.avalonia/
+
+# Env / secrets
+.env
+*.pfx
+*.p12
