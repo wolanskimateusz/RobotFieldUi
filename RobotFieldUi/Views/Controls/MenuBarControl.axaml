@@ -1,0 +1,45 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RobotFieldUi.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RobotFieldUi.Views.Controls.MenuBarControl"
+             x:DataType="vm:MenuBarViewModel">
+    <Menu>
+        <MenuItem Header="Plik">
+            <MenuItem Header="Nowy"          InputGesture="Ctrl+N" Command="{Binding NewFileCommand}"/>
+            <MenuItem Header="Otwórz..."     InputGesture="Ctrl+O" Command="{Binding OpenFileCommand}"/>
+            <MenuItem Header="Otwórz ostatnie"/>
+            <Separator/>
+            <MenuItem Header="Zapisz"        InputGesture="Ctrl+S" Command="{Binding SaveFileCommand}"/>
+            <MenuItem Header="Zapisz jako..."/>
+            <Separator/>
+            <MenuItem Header="Zamknij"/>
+        </MenuItem>
+        <MenuItem Header="Edycja">
+            <MenuItem Header="Cofnij"            InputGesture="Ctrl+Z" Command="{Binding UndoCommand}"/>
+            <MenuItem Header="Ponów"             InputGesture="Ctrl+Y" Command="{Binding RedoCommand}"/>
+            <Separator/>
+            <MenuItem Header="Wytnij"            InputGesture="Ctrl+X"/>
+            <MenuItem Header="Kopiuj"            InputGesture="Ctrl+C"/>
+            <MenuItem Header="Wklej"             InputGesture="Ctrl+V"/>
+            <Separator/>
+            <MenuItem Header="Zaznacz wszystko"  InputGesture="Ctrl+A"/>
+        </MenuItem>
+        <MenuItem Header="Rysowanie">
+            <MenuItem Header="Linia"/>
+            <MenuItem Header="Okrąg"/>
+            <MenuItem Header="Łuk"/>
+            <Separator/>
+            <MenuItem Header="Translacja"/>
+            <MenuItem Header="Rotacja"/>
+            <MenuItem Header="Skalowanie"/>
+            <MenuItem Header="Lustro"/>
+        </MenuItem>
+        <MenuItem Header="Pomoc">
+            <MenuItem Header="O programie..."/>
+        </MenuItem>
+    </Menu>
+</UserControl>
+

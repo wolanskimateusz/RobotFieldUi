@@ -1,0 +1,59 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="Menu">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <!-- Pozycje głównego paska -->
+    <Style Selector="Menu > MenuItem">
+        <Setter Property="Foreground" Value="{DynamicResource TextOnSurfaceBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="8,0"/>
+        <Setter Property="Height" Value="28"/>
+    </Style>
+
+    <Style Selector="Menu > MenuItem:pointerover /template/ Border#PART_LayoutRoot">
+        <Setter Property="Background" Value="{DynamicResource SurfaceTertiaryBrush}"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="Menu > MenuItem:open /template/ Border#PART_LayoutRoot">
+        <Setter Property="Background" Value="{DynamicResource SurfaceTertiaryBrush}"/>
+        <Setter Property="CornerRadius" Value="3 3 0 0"/>
+    </Style>
+
+    <!-- Tło rozwijanego menu -->
+    <Style Selector="MenuFlyoutPresenter">
+        <Setter Property="Background" Value="{DynamicResource SurfaceSecondaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceTertiaryBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="0 4 4 4"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <!-- Pozycje w dropdown -->
+    <Style Selector="MenuItem MenuItem">
+        <Setter Property="Foreground" Value="{DynamicResource TextOnSurfaceBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="MenuItem MenuItem /template/ Border#PART_LayoutRoot">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="MenuItem MenuItem:pointerover /template/ Border#PART_LayoutRoot">
+        <Setter Property="Background" Value="{DynamicResource InteractiveBrush}"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <!-- Separator -->
+    <Style Selector="MenuItem > Separator">
+        <Setter Property="Background" Value="{DynamicResource SurfaceTertiaryBrush}"/>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Margin" Value="8,3"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
+</Styles>

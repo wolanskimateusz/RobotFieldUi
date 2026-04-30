@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ============================================ -->
+    <!-- SURFACE - tła paneli i kontenerów            -->
+    <!-- ============================================ -->
+    <Color x:Key="SurfacePrimary">#12121F</Color>
+    <Color x:Key="SurfaceSecondary">#2A2A3E</Color>
+    <Color x:Key="SurfaceTertiary">#313145</Color>
+    <Color x:Key="SurfaceCanvas">#0F0F1A</Color>
+
+    <!-- ============================================ -->
+    <!-- TEXT - tekst na powierzchniach               -->
+    <!-- ============================================ -->
+    <Color x:Key="TextOnSurface">#F8FAFC</Color>
+    <Color x:Key="TextMuted">#94A3B8</Color>
+
+    <!-- ============================================ -->
+    <!-- INTERACTIVE - przyciski, akcenty             -->
+    <!-- ============================================ -->
+    <Color x:Key="Interactive">#2563EB</Color>
+    <Color x:Key="InteractiveHover">#1D4ED8</Color>
+
+    <!-- ============================================ -->
+    <!-- STATUS - stan robota                         -->
+    <!-- ============================================ -->
+    <Color x:Key="StatusOk">#22C55E</Color>
+    <Color x:Key="StatusWarning">#F59E0B</Color>
+    <Color x:Key="StatusError">#EF4444</Color>
+
+    <!-- ============================================ -->
+    <!-- BRUSHE - gotowe do użycia w AXAML            -->
+    <!-- ============================================ -->
+    <SolidColorBrush x:Key="SurfacePrimaryBrush"
+                     Color="{StaticResource SurfacePrimary}"/>
+    <SolidColorBrush x:Key="SurfaceSecondaryBrush"
+                     Color="{StaticResource SurfaceSecondary}"/>
+    <SolidColorBrush x:Key="SurfaceTertiaryBrush"
+                     Color="{StaticResource SurfaceTertiary}"/>
+    <SolidColorBrush x:Key="SurfaceCanvasBrush"
+                     Color="{StaticResource SurfaceCanvas}"/>
+    <SolidColorBrush x:Key="TextOnSurfaceBrush"
+                     Color="{StaticResource TextOnSurface}"/>
+    <SolidColorBrush x:Key="TextMutedBrush"
+                     Color="{StaticResource TextMuted}"/>
+    <SolidColorBrush x:Key="InteractiveBrush"
+                     Color="{StaticResource Interactive}"/>
+    <SolidColorBrush x:Key="StatusOkBrush"
+                     Color="{StaticResource StatusOk}"/>
+    <SolidColorBrush x:Key="StatusWarningBrush"
+                     Color="{StaticResource StatusWarning}"/>
+    <SolidColorBrush x:Key="StatusErrorBrush"
+                     Color="{StaticResource StatusError}"/>
+
+</ResourceDictionary>
