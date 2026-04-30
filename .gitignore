@@ -40,3 +40,7 @@ logs/
 .env
 *.pfx
 *.p12
+
+# Pliki projektowe
+Plan pracy.docx
+rysunek1_UI.svg
