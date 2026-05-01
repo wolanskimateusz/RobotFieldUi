@@ -1,7 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:RobotFieldUi.ViewModels"
-        xmlns:controls="clr-namespace:RobotFieldUi.Views.Controls"
+        xmlns:controls="using:RobotFieldUi.Views.Controls"
         x:DataType="vm:MainWindowViewModel"
         x:Class="RobotFieldUi.Views.MainWindow"
         Width="1200" Height="800"
@@ -15,32 +15,35 @@
             <controls:MenuBarControl DataContext="{Binding MenuBar}"/>
         </Border>
 
-        <!-- Row 1: Toolbar (placeholder) -->
+        <!-- Row 1: Wstążka -->
         <Border Grid.Row="1" Background="{StaticResource SurfaceTertiaryBrush}">
-            <TextBlock Text="[ WSTĄŻKA ]"
-                       Foreground="#94A3B8"
-                       VerticalAlignment="Center" Margin="8,0"/>
+            <controls:RibbonControl DataContext="{Binding Ribbon}"/>
         </Border>
 
         <!-- Row 2: Główny obszar -->
-        <Grid Grid.Row="2" ColumnDefinitions="200,*,48">
+        <Grid Grid.Row="2" ColumnDefinitions="200,4,*,4,200">
 
             <!-- Drzewko -->
             <Border Grid.Column="0" Background="{StaticResource SurfaceSecondaryBrush}">
                 <controls:TreePanelControl DataContext="{Binding TreePanel}"/>
             </Border>
+            
+            <GridSplitter Grid.Column="1" 
+                          ResizeDirection="Columns" 
+                          Background="{StaticResource SurfaceTertiaryBrush}"></GridSplitter>
 
             <!-- Canvas -->
-            <Border Grid.Column="1" Background="{StaticResource SurfaceCanvasBrush}">
+            <Border Grid.Column="2" Background="{StaticResource SurfaceCanvasBrush}">
                 <controls:CanvasControl  DataContext="{Binding Canvas}"/>
             </Border>
+            
+            <GridSplitter Grid.Column="3" 
+                          ResizeDirection="Columns" 
+                          Background="{StaticResource SurfaceTertiaryBrush}"></GridSplitter>
 
-            <!-- Narzędzia -->
-            <Border Grid.Column="2" Background="{StaticResource SurfaceSecondaryBrush}">
-                <TextBlock Text="N"
-                           Foreground="#94A3B8"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
+            <!-- Właściwości -->
+            <Border Grid.Column="4" Background="{StaticResource SurfaceSecondaryBrush}">
+                <controls:PropertiesControl DataContext="{Binding Properties}"/>
             </Border>
 
         </Grid>

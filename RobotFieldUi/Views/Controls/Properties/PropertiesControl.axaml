@@ -1,0 +1,95 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:RobotFieldUi.ViewModels"
+             xmlns:treePanel="using:RobotFieldUi.Models.TreePanel"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="600"
+             x:Class="RobotFieldUi.Views.Controls.PropertiesControl"
+             x:DataType="vm:PropertiesViewModel">
+
+    <StackPanel Margin="8">
+
+        <!-- Nagłówek -->
+        <TextBlock Text="Właściwości"
+                   FontSize="11"
+                   Foreground="{StaticResource TextMutedBrush}"
+                   Margin="0,0,0,8"/>
+
+        <Separator Background="{StaticResource SurfaceTertiaryBrush}"
+                   Margin="0,0,0,8"/>
+
+        
+        <!-- Placeholder gdy nic nie zaznaczone -->
+        <TextBlock Text="Brak zaznaczenia"
+                   Foreground="{StaticResource TextMutedBrush}"
+                   FontSize="11"
+                   IsVisible="{Binding SelectedObject, Converter={x:Static ObjectConverters.IsNull}}"/>
+
+        <!-- ContentControl dobiera szablon automatycznie po typie -->
+        <ContentControl Content="{Binding SelectedObject}"
+                        IsVisible="{Binding SelectedObject, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <ContentControl.DataTemplates>
+
+                <!-- Zaznaczony punkt -->
+                <DataTemplate DataType="treePanel:PathPoint">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="Punkt" FontWeight="Bold"
+                                   Foreground="{StaticResource TextOnSurfaceBrush}"/>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="X:" Margin="0,0,8,0"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1"
+                                     Text="{Binding X}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Y:" Margin="0,4,8,0"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,4,0,0"
+                                     Text="{Binding Y}"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+
+                <!-- Zaznaczona ścieżka -->
+                <DataTemplate DataType="treePanel:MissionPath">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="Ścieżka" FontWeight="Bold"
+                                   Foreground="{StaticResource TextOnSurfaceBrush}"/>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa:" Margin="0,0,8,0"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1"
+                                     Text="{Binding Name}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Punktów:" Margin="0,4,8,0"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,4,0,0"
+                                       Text="{Binding Points.Count}"
+                                       Foreground="{StaticResource TextOnSurfaceBrush}"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+
+                <!-- Zaznaczona misja -->
+                <DataTemplate DataType="treePanel:Mission">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="Misja" FontWeight="Bold"
+                                   Foreground="{StaticResource TextOnSurfaceBrush}"/>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa:" Margin="0,0,8,0"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1"
+                                     Text="{Binding Name}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Ścieżek:" Margin="0,4,8,0"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,4,0,0"
+                                       Text="{Binding Paths.Count}"
+                                       Foreground="{StaticResource TextOnSurfaceBrush}"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+
+            </ContentControl.DataTemplates>
+        </ContentControl>
+
+    </StackPanel>
+
+</UserControl>

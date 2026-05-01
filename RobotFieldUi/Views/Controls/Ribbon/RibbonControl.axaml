@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:RobotFieldUi.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="48"
+             x:Class="RobotFieldUi.Views.Controls.RibbonControl"
+             x:DataType="vm:RibbonViewModel">
+
+    <StackPanel Orientation="Horizontal" Spacing="2" Margin="4,4">
+
+        <!-- Grupa: Widok -->
+        <Border BorderBrush="#334155" BorderThickness="1" CornerRadius="4" Padding="4,2">
+            <StackPanel Orientation="Horizontal" Spacing="2">
+
+                <ToggleButton ToolTip.Tip="Zaznacz (S)"
+                              IsChecked="{Binding IsSelect}"
+                              Command="{Binding SetToolCommand}"
+                              CommandParameter="{x:Static vm:ActiveTool.Select}"
+                              Width="36" Height="36" Padding="0">
+                    <TextBlock Text="&#xE8B0;" FontFamily="Segoe MDL2 Assets" FontSize="16"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ToggleButton>
+
+                <ToggleButton ToolTip.Tip="Przesuń widok (H)"
+                              IsChecked="{Binding IsPan}"
+                              Command="{Binding SetToolCommand}"
+                              CommandParameter="{x:Static vm:ActiveTool.Pan}"
+                              Width="36" Height="36" Padding="0">
+                    <TextBlock Text="&#xE7C4;" FontFamily="Segoe MDL2 Assets" FontSize="16"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ToggleButton>
+
+            </StackPanel>
+        </Border>
+
+        <Border Width="1" Background="#334155" Margin="2,6"/>
+
+        <!-- Grupa: Edycja -->
+        <Border BorderBrush="#334155" BorderThickness="1" CornerRadius="4" Padding="4,2">
+            <StackPanel Orientation="Horizontal" Spacing="2">
+
+                <ToggleButton ToolTip.Tip="Dodaj punkt (P)"
+                              IsChecked="{Binding IsAddPoint}"
+                              Command="{Binding SetToolCommand}"
+                              CommandParameter="{x:Static vm:ActiveTool.AddPoint}"
+                              Width="36" Height="36" Padding="0">
+                    <TextBlock Text="&#xECC8;" FontFamily="Segoe MDL2 Assets" FontSize="16"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ToggleButton>
+
+                <ToggleButton ToolTip.Tip="Dodaj ścieżkę (A)"
+                              IsChecked="{Binding IsAddPath}"
+                              Command="{Binding SetToolCommand}"
+                              CommandParameter="{x:Static vm:ActiveTool.AddPath}"
+                              Width="36" Height="36" Padding="0">
+                    <TextBlock Text="&#xEC8F;" FontFamily="Segoe MDL2 Assets" FontSize="16"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ToggleButton>
+
+                <ToggleButton ToolTip.Tip="Usuń (Del)"
+                              IsChecked="{Binding IsDelete}"
+                              Command="{Binding SetToolCommand}"
+                              CommandParameter="{x:Static vm:ActiveTool.Delete}"
+                              Width="36" Height="36" Padding="0">
+                    <TextBlock Text="&#xE74D;" FontFamily="Segoe MDL2 Assets" FontSize="16"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ToggleButton>
+
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+
+</UserControl>

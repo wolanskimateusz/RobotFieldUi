@@ -12,4 +12,7 @@ public partial class CanvasViewModel : ViewModelBase
 
     [ObservableProperty]
     private double _scale = 1.0;
+    
+    [ObservableProperty]
+    private ActiveTool _activeTool = ActiveTool.Select;
 }
