@@ -1,20 +1,39 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:RobotFieldUi.ViewModels"
              xmlns:local="using:RobotFieldUi.Views.Controls"
+             xmlns:canvas="clr-namespace:RobotFieldUi.Views.Controls.Canvas"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RobotFieldUi.Views.Controls.CanvasControl"
              x:DataType="vm:CanvasViewModel">
-    
+
     <Border Background="{StaticResource SurfaceCanvasBrush}"
             ClipToBounds="True">
         <Panel>
-            <local:GridOverlay GridSpacing="20"/>
+
+            <!-- Siatka poza transformacją — tyle nieskończone przez przesunięcie fazy -->
+            <local:GridOverlay GridSpacing="40"
+                               OffsetX="{Binding OffsetX}"
+                               OffsetY="{Binding OffsetY}"/>
+
+            <!-- Treść przesuwana przez pan -->
+            <Panel>
+                <Panel.RenderTransform>
+                    <TranslateTransform X="{Binding OffsetX}" Y="{Binding OffsetY}"/>
+                </Panel.RenderTransform>
+                <canvas:PathRenderer ActivePath="{Binding ActivePath}"
+                                     SelectedPoint="{Binding SelectedPoint}"/>
+            </Panel>
+
+            <!-- Overlay na eventy myszy — bez transformacji -->
             <Canvas Name="DrawingCanvas"
                     Background="Transparent"
-                    PointerMoved="OnPointerMoved"/>
+                    PointerMoved="OnPointerMoved"
+                    PointerPressed="OnPointerPressed"
+                    PointerReleased="OnPointerReleased"/>
+
         </Panel>
     </Border>
 </UserControl>

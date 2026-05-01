@@ -1,17 +1,30 @@
-﻿namespace RobotFieldUi.Models.TreePanel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-public class PathPoint
+namespace RobotFieldUi.Models.TreePanel;
+
+public class PathPoint : INotifyPropertyChanged
 {
-    public double X { get; set; } = 0.0;
-    public double Y { get; set; } = 0.0;
-    
+    private double _x;
+    private double _y;
+
+    public double X
+    {
+        get => _x;
+        set { if (_x == value) return; _x = value; Notify(); Notify(nameof(DisplayName)); }
+    }
+
+    public double Y
+    {
+        get => _y;
+        set { if (_y == value) return; _y = value; Notify(); Notify(nameof(DisplayName)); }
+    }
+
     public string DisplayName => $"Punkt ({X:0.##}, {Y:0.##})";
 
-    public PathPoint(double x, double y)
-    {
-        X = x;
-        Y = y;
-    }
-    
+    public PathPoint(double x, double y) { _x = x; _y = y; }
 
+    public event PropertyChangedEventHandler? PropertyChanged;
+    private void Notify([CallerMemberName] string? name = null)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }

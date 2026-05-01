@@ -1,14 +1,24 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace RobotFieldUi.Models.TreePanel;
 
-public class MissionPath
+public class MissionPath : INotifyPropertyChanged
 {
-    public string Name { get; set; } = "Nowa Ścieżka";
+    private string _name = "Nowa Ścieżka";
+
+    public string Name
+    {
+        get => _name;
+        set { if (_name == value) return; _name = value; Notify(); }
+    }
+
     public ObservableCollection<PathPoint> Points { get; } = new();
 
-    public MissionPath(string name)
-    {
-        Name = name;
-    }
+    public MissionPath(string name) { _name = name; }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+    private void Notify([CallerMemberName] string? name = null)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }

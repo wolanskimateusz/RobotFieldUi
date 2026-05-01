@@ -46,5 +46,8 @@
         <DependentUpon>TreePanelControl.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Views\Dialogs\AddPathDialog.axaml.cs">
+        <DependentUpon>AddPathDialog.axaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

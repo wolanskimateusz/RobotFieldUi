@@ -49,14 +49,13 @@
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </ToggleButton>
 
-                <ToggleButton ToolTip.Tip="Dodaj ścieżkę (A)"
-                              IsChecked="{Binding IsAddPath}"
-                              Command="{Binding SetToolCommand}"
-                              CommandParameter="{x:Static vm:ActiveTool.AddPath}"
-                              Width="36" Height="36" Padding="0">
+                <!-- Akcja — nie narzędzie, otwiera dialog -->
+                <Button ToolTip.Tip="Dodaj ścieżkę…"
+                        Command="{Binding AddPathCommand}"
+                        Width="36" Height="36" Padding="0">
                     <TextBlock Text="&#xEC8F;" FontFamily="Segoe MDL2 Assets" FontSize="16"
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ToggleButton>
+                </Button>
 
                 <ToggleButton ToolTip.Tip="Usuń (Del)"
                               IsChecked="{Binding IsDelete}"
