@@ -28,4 +28,23 @@
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\Controls\Menu\MenuBarControl.axaml.cs">
+        <DependentUpon>MenuBarControl.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Controls\Canvas\CanvasControl.axaml.cs">
+        <DependentUpon>CanvasControl.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Controls\Footer\StatusBarControl.axaml.cs">
+        <DependentUpon>StatusBarControl.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Controls\TreePanel\TreePanelControl.axaml.cs">
+        <DependentUpon>TreePanelControl.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

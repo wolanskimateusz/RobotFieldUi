@@ -32,10 +32,7 @@
 
             <!-- Canvas -->
             <Border Grid.Column="1" Background="{StaticResource SurfaceCanvasBrush}">
-                <TextBlock Text="[ OBSZAR EDYCJI ]"
-                           Foreground="#94A3B8"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
+                <controls:CanvasControl  DataContext="{Binding Canvas}"/>
             </Border>
 
             <!-- Narzędzia -->

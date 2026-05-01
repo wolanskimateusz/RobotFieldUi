@@ -10,7 +10,17 @@ namespace RobotFieldUi.ViewModels
 
         public StatusBarViewModel StatusBar { get; } = new();
         public TreePanelViewModel TreePanel { get; } = new();
-        
+        public CanvasViewModel Canvas { get; } = new();
 
+        public MainWindowViewModel()
+        {
+            Canvas.PropertyChanged += (_, e) =>
+            {
+                if (e.PropertyName == nameof(CanvasViewModel.CursorX))
+                    StatusBar.CursorX = Canvas.CursorX;
+                if (e.PropertyName == nameof(CanvasViewModel.CursorY))
+                    StatusBar.CursorY = Canvas.CursorY;
+            };
+        }
     }
 }
