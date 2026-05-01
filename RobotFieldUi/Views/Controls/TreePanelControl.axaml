@@ -1,0 +1,37 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:RobotFieldUi.ViewModels"
+             xmlns:treePanel="using:RobotFieldUi.Models.TreePanel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RobotFieldUi.Views.Controls.TreePanelControl"
+             x:DataType="vm:TreePanelViewModel">
+    
+    
+    <TreeView ItemsSource="{Binding Projects}"
+              SelectedItem="{Binding SelectedItem}">
+        <TreeView.DataTemplates>
+
+            <TreeDataTemplate DataType="treePanel:Project"
+                              ItemsSource="{Binding Missions}">
+                <TextBlock Text="{Binding Name}"/>
+            </TreeDataTemplate>
+
+            <TreeDataTemplate DataType="treePanel:Mission"
+                              ItemsSource="{Binding Paths}">
+                <TextBlock Text="{Binding Name}"/>
+            </TreeDataTemplate>
+
+            <TreeDataTemplate DataType="treePanel:MissionPath"
+                              ItemsSource="{Binding Points}">
+                <TextBlock Text="{Binding Name}"/>
+            </TreeDataTemplate>
+
+            <DataTemplate DataType="treePanel:PathPoint">
+                <TextBlock Text="{Binding DisplayName}"/>
+            </DataTemplate>
+
+        </TreeView.DataTemplates>
+    </TreeView>
+</UserControl>

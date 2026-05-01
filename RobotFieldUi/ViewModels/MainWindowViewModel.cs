@@ -9,6 +9,7 @@ namespace RobotFieldUi.ViewModels
         public MenuBarViewModel MenuBar { get; } = new();
 
         public StatusBarViewModel StatusBar { get; } = new();
+        public TreePanelViewModel TreePanel { get; } = new();
         
 
     }

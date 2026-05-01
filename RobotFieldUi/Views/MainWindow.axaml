@@ -7,35 +7,27 @@
         Width="1200" Height="800"
         Title="RobotFieldUi">
 
-    <Grid RowDefinitions="28,28,48,*,24">
+    <Grid RowDefinitions="28,48,*,24">
+        
 
-        <!-- Row 0: TitleBar -->
-        <Border Grid.Row="0" Background="{StaticResource SurfacePrimaryBrush}">
-            <TextBlock Text="Robot Field UI"
-                       Foreground="White"
-                       VerticalAlignment="Center" Margin="8,0"/>
-        </Border>
-
-        <!-- Row 1: Menu -->
-        <Border Grid.Row="1" Background="{StaticResource SurfaceSecondaryBrush}">
+        <!-- Row 0: Menu -->
+        <Border Grid.Row="0" Background="{StaticResource SurfaceSecondaryBrush}">
             <controls:MenuBarControl DataContext="{Binding MenuBar}"/>
         </Border>
 
-        <!-- Row 2: Toolbar (placeholder) -->
-        <Border Grid.Row="2" Background="{StaticResource SurfaceTertiaryBrush}">
+        <!-- Row 1: Toolbar (placeholder) -->
+        <Border Grid.Row="1" Background="{StaticResource SurfaceTertiaryBrush}">
             <TextBlock Text="[ WSTĄŻKA ]"
                        Foreground="#94A3B8"
                        VerticalAlignment="Center" Margin="8,0"/>
         </Border>
 
-        <!-- Row 3: Główny obszar -->
-        <Grid Grid.Row="3" ColumnDefinitions="200,*,48">
+        <!-- Row 2: Główny obszar -->
+        <Grid Grid.Row="2" ColumnDefinitions="200,*,48">
 
             <!-- Drzewko -->
             <Border Grid.Column="0" Background="{StaticResource SurfaceSecondaryBrush}">
-                <TextBlock Text="[ DRZEWKO ]"
-                           Foreground="#94A3B8"
-                           Margin="8"/>
+                <controls:TreePanelControl DataContext="{Binding TreePanel}"/>
             </Border>
 
             <!-- Canvas -->
@@ -56,8 +48,8 @@
 
         </Grid>
 
-        <!-- Row 4: Stopka – dane z VM przez skompilowany binding -->
-        <Border Grid.Row="4" Background="{StaticResource SurfacePrimaryBrush}">
+        <!-- Row 3: Stopka – dane z VM przez skompilowany binding -->
+        <Border Grid.Row="3" Background="{StaticResource SurfacePrimaryBrush}">
             <controls:StatusBarControl DataContext="{Binding StatusBar}"/>
         </Border>
 
