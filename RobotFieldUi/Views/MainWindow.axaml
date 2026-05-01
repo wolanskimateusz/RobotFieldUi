@@ -58,10 +58,7 @@
 
         <!-- Row 4: Stopka – dane z VM przez skompilowany binding -->
         <Border Grid.Row="4" Background="{StaticResource SurfacePrimaryBrush}">
-            <TextBlock Text="{Binding StatusText}"
-                       Foreground="{StaticResource TextMutedBrush}"
-                       VerticalAlignment="Center" Margin="8,0"
-                       FontSize="11"/>
+            <controls:StatusBarControl DataContext="{Binding StatusBar}"/>
         </Border>
 
     </Grid>
