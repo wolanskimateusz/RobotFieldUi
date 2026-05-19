@@ -72,6 +72,14 @@
                     </Grid>
                 </StackPanel>
 
+                <!-- Sekcja: Średnica (środek okręgu) -->
+                <StackPanel IsVisible="{Binding HasDiameter}" Spacing="3">
+                    <TextBlock Text="Średnica"
+                               FontSize="11"
+                               Foreground="{StaticResource TextMutedBrush}"/>
+                    <TextBox Text="{Binding DraftDiameter}"/>
+                </StackPanel>
+
                 <!-- Przycisk Zapisz -->
                 <Button Content="Zapisz"
                         Command="{Binding SaveCommand}"

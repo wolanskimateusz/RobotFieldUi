@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RobotFieldUi.Views.Dialogs.RotateDialog"
+        Title="Rotacja" Width="280" Height="130"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="16" Spacing="12">
+        <Grid ColumnDefinitions="130,*">
+            <TextBlock Grid.Column="0" Text="Kąt (°):" VerticalAlignment="Center"/>
+            <NumericUpDown x:Name="AngleInput" Grid.Column="1"
+                           Value="0" Minimum="-360" Maximum="360"
+                           Increment="5" FormatString="0.#"/>
+        </Grid>
+        <TextBlock Text="+ zgodnie z ruchem wskazówek zegara"
+                   FontSize="11" Foreground="#64748b"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Content="OK"     Width="80" IsDefault="True" Click="OnOk"/>
+            <Button Content="Anuluj" Width="80" IsCancel="True"  Click="OnCancel"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

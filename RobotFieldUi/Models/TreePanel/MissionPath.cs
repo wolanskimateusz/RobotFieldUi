@@ -7,11 +7,19 @@ namespace RobotFieldUi.Models.TreePanel;
 public class MissionPath : INotifyPropertyChanged
 {
     private string _name = "Nowa Ścieżka";
+    private bool   _isActive;
 
     public string Name
     {
         get => _name;
         set { if (_name == value) return; _name = value; Notify(); }
+    }
+
+    // Podświetlenie aktywnej ścieżki w drzewku
+    public bool IsActive
+    {
+        get => _isActive;
+        set { if (_isActive == value) return; _isActive = value; Notify(); }
     }
 
     public ObservableCollection<PathPoint> Points { get; } = new();

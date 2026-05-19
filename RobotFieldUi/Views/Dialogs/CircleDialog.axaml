@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RobotFieldUi.Views.Dialogs.CircleDialog"
+        Title="Wstaw okrąg" Width="280" Height="230"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="16" Spacing="8">
+        <Grid ColumnDefinitions="110,*" RowDefinitions="Auto,Auto,Auto,Auto">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Środek X:"      VerticalAlignment="Center"/>
+            <NumericUpDown x:Name="CxInput" Grid.Row="0" Grid.Column="1"
+                           Value="0" Increment="10" FormatString="0.##"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Środek Y:"      VerticalAlignment="Center" Margin="0,6,0,0"/>
+            <NumericUpDown x:Name="CyInput" Grid.Row="1" Grid.Column="1"
+                           Value="0" Increment="10" FormatString="0.##"   Margin="0,6,0,0"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Promień:"       VerticalAlignment="Center" Margin="0,6,0,0"/>
+            <NumericUpDown x:Name="RadiusInput" Grid.Row="2" Grid.Column="1"
+                           Value="100" Minimum="1" Increment="10" FormatString="0.##" Margin="0,6,0,0"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Liczba punktów:" VerticalAlignment="Center" Margin="0,6,0,0"/>
+            <NumericUpDown x:Name="NInput" Grid.Row="3" Grid.Column="1"
+                           Value="8" Minimum="3" Maximum="64" Increment="1" FormatString="0" Margin="0,6,0,0"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Spacing="16">
+            <RadioButton x:Name="RbCW"  GroupName="dir" IsChecked="True" Content="CW (zgodnie z zegarkiem)"/>
+            <RadioButton x:Name="RbCCW" GroupName="dir" Content="CCW"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Content="Wstaw"  Width="80" IsDefault="True" Click="OnInsert"/>
+            <Button Content="Anuluj" Width="80" IsCancel="True"  Click="OnCancel"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

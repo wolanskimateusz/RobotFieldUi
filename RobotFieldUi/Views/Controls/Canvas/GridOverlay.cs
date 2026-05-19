@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -15,16 +16,21 @@ public class GridOverlay : Control
     public static readonly StyledProperty<double> OffsetYProperty =
         AvaloniaProperty.Register<GridOverlay, double>(nameof(OffsetY));
 
+    public static readonly StyledProperty<double> ScaleProperty =
+        AvaloniaProperty.Register<GridOverlay, double>(nameof(Scale), defaultValue: 1.0);
+
     public double GridSpacing { get => GetValue(GridSpacingProperty); set => SetValue(GridSpacingProperty, value); }
     public double OffsetX     { get => GetValue(OffsetXProperty);     set => SetValue(OffsetXProperty, value); }
     public double OffsetY     { get => GetValue(OffsetYProperty);     set => SetValue(OffsetYProperty, value); }
+    public double Scale       { get => GetValue(ScaleProperty);       set => SetValue(ScaleProperty, value); }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
-        if (change.Property == OffsetXProperty ||
-            change.Property == OffsetYProperty ||
-            change.Property == GridSpacingProperty)
+        if (change.Property == OffsetXProperty  ||
+            change.Property == OffsetYProperty  ||
+            change.Property == GridSpacingProperty ||
+            change.Property == ScaleProperty)
             InvalidateVisual();
     }
 
@@ -37,9 +43,8 @@ public class GridOverlay : Control
 
         var w       = Bounds.Width;
         var h       = Bounds.Height;
-        var spacing = GridSpacing;
+        var spacing = GridSpacing * Math.Max(Scale, 0.001);
 
-        // Przesunięcie fazy — rysujemy od ujemnej reszty, żeby siatka zawsze wypełniała cały obszar
         var phaseX = ((OffsetX % spacing) + spacing) % spacing;
         var phaseY = ((OffsetY % spacing) + spacing) % spacing;
 

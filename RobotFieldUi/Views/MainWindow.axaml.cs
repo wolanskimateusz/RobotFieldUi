@@ -15,8 +15,9 @@ namespace RobotFieldUi.Views
         protected override void OnDataContextChanged(EventArgs e)
         {
             base.OnDataContextChanged(e);
-
             if (DataContext is not MainWindowViewModel vm) return;
+
+            vm.GetMainWindow = () => this;
 
             vm.ShowAddPathDialog = async (missions, defaultName) =>
             {

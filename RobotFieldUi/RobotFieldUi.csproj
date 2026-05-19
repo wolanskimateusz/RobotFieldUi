@@ -26,7 +26,6 @@
 
     <ItemGroup>
         <Folder Include="Models\" />
-        <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -48,6 +47,24 @@
       </Compile>
       <Compile Update="Views\Dialogs\AddPathDialog.axaml.cs">
         <DependentUpon>AddPathDialog.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dialogs\ConfirmDeleteDialog.axaml.cs">
+        <DependentUpon>ConfirmDeleteDialog.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dialogs\TranslateDialog.axaml.cs">
+        <DependentUpon>TranslateDialog.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dialogs\RotateDialog.axaml.cs">
+        <DependentUpon>RotateDialog.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dialogs\ScaleDialog.axaml.cs">
+        <DependentUpon>ScaleDialog.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dialogs\MirrorDialog.axaml.cs">
+        <DependentUpon>MirrorDialog.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dialogs\CircleDialog.axaml.cs">
+        <DependentUpon>CircleDialog.axaml</DependentUpon>
       </Compile>
     </ItemGroup>
 </Project>

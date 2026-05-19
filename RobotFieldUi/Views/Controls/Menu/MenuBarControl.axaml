@@ -1,4 +1,4 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,38 +8,32 @@
              x:DataType="vm:MenuBarViewModel">
     <Menu>
         <MenuItem Header="Plik">
-            <MenuItem Header="Nowy"          InputGesture="Ctrl+N" Command="{Binding NewFileCommand}"/>
-            <MenuItem Header="Otwórz..."     InputGesture="Ctrl+O" Command="{Binding OpenFileCommand}"/>
-            <MenuItem Header="Otwórz ostatnie"/>
+            <MenuItem Header="Nowy"             InputGesture="Ctrl+N" Command="{Binding NewFileCommand}"/>
+            <MenuItem Header="Otwórz..."        InputGesture="Ctrl+O" Command="{Binding OpenFileCommand}"/>
             <Separator/>
-            <MenuItem Header="Zapisz"        InputGesture="Ctrl+S" Command="{Binding SaveFileCommand}"/>
-            <MenuItem Header="Zapisz jako..."/>
+            <MenuItem Header="Zapisz"           InputGesture="Ctrl+S" Command="{Binding SaveFileCommand}"/>
+            <MenuItem Header="Zapisz jako..."                         Command="{Binding SaveFileAsCommand}"/>
             <Separator/>
-            <MenuItem Header="Zamknij"/>
+            <MenuItem Header="Zamknij"                                Command="{Binding CloseCommand}"/>
         </MenuItem>
         <MenuItem Header="Edycja">
-            <MenuItem Header="Cofnij"            InputGesture="Ctrl+Z" Command="{Binding UndoCommand}"/>
-            <MenuItem Header="Ponów"             InputGesture="Ctrl+Y" Command="{Binding RedoCommand}"/>
+            <MenuItem Header="Cofnij"           InputGesture="Ctrl+Z" Command="{Binding UndoCommand}"/>
+            <MenuItem Header="Ponów"            InputGesture="Ctrl+Y" Command="{Binding RedoCommand}"/>
             <Separator/>
-            <MenuItem Header="Wytnij"            InputGesture="Ctrl+X"/>
-            <MenuItem Header="Kopiuj"            InputGesture="Ctrl+C"/>
-            <MenuItem Header="Wklej"             InputGesture="Ctrl+V"/>
-            <Separator/>
-            <MenuItem Header="Zaznacz wszystko"  InputGesture="Ctrl+A"/>
+            <MenuItem Header="Zaznacz wszystko" InputGesture="Ctrl+A" Command="{Binding SelectAllCommand}"/>
         </MenuItem>
         <MenuItem Header="Rysowanie">
-            <MenuItem Header="Linia"/>
-            <MenuItem Header="Okrąg"/>
-            <MenuItem Header="Łuk"/>
+            <MenuItem Header="Linia"  Command="{Binding LineToolCommand}"/>
+            <MenuItem Header="Łuk"   Command="{Binding ArcToolCommand}"/>
+            <MenuItem Header="Okrąg" Command="{Binding CircleCommand}"/>
             <Separator/>
-            <MenuItem Header="Translacja"/>
-            <MenuItem Header="Rotacja"/>
-            <MenuItem Header="Skalowanie"/>
-            <MenuItem Header="Lustro"/>
+            <MenuItem Header="Translacja" Command="{Binding TranslateCommand}"/>
+            <MenuItem Header="Rotacja"    Command="{Binding RotateCommand}"/>
+            <MenuItem Header="Skalowanie" Command="{Binding ScaleCommand}"/>
+            <MenuItem Header="Lustro"     Command="{Binding MirrorCommand}"/>
         </MenuItem>
         <MenuItem Header="Pomoc">
             <MenuItem Header="O programie..."/>
         </MenuItem>
     </Menu>
 </UserControl>
-

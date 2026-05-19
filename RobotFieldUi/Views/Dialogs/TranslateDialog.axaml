@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RobotFieldUi.Views.Dialogs.TranslateDialog"
+        Title="Translacja" Width="260" Height="145"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="16" Spacing="12">
+        <Grid ColumnDefinitions="50,*" RowDefinitions="Auto,Auto" >
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="ΔX:"
+                       VerticalAlignment="Center"/>
+            <NumericUpDown x:Name="DxInput" Grid.Row="0" Grid.Column="1"
+                           Value="0" Increment="1" FormatString="0.##"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="ΔY:"
+                       VerticalAlignment="Center" Margin="0,8,0,0"/>
+            <NumericUpDown x:Name="DyInput" Grid.Row="1" Grid.Column="1"
+                           Value="0" Increment="1" FormatString="0.##"
+                           Margin="0,8,0,0"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Content="OK"      Width="80" IsDefault="True" Click="OnOk"/>
+            <Button Content="Anuluj"  Width="80" IsCancel="True"  Click="OnCancel"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

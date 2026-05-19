@@ -1,4 +1,4 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,29 +7,80 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RobotFieldUi.Views.Controls.TreePanelControl"
              x:DataType="vm:TreePanelViewModel">
-    
-    
-    <TreeView ItemsSource="{Binding Projects}"
-              SelectedItem="{Binding SelectedItem}">
+
+    <TreeView x:Name="theTree"
+              SelectionMode="Multiple"
+              ItemsSource="{Binding Projects}"
+              SelectedItem="{Binding SelectedItem}"
+              SelectionChanged="OnSelectionChanged">
+
+        <TreeView.KeyBindings>
+            <KeyBinding Gesture="Delete"
+                        Command="{Binding DeleteItemCommand}"
+                        CommandParameter="{Binding SelectedItem}"/>
+        </TreeView.KeyBindings>
+
         <TreeView.DataTemplates>
 
             <TreeDataTemplate DataType="treePanel:Project"
                               ItemsSource="{Binding Missions}">
-                <TextBlock Text="{Binding Name}"/>
+                <TextBlock Text="{Binding Name}">
+                    <TextBlock.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Dodaj misję"  Click="OnAddMissionClick"/>
+                            <Separator/>
+                            <MenuItem Header="Usuń projekt" Click="OnDeleteClick"/>
+                            <Separator/>
+                            <MenuItem Header="Usuń zaznaczone" Click="OnDeleteSelectedClick"/>
+                        </ContextMenu>
+                    </TextBlock.ContextMenu>
+                </TextBlock>
             </TreeDataTemplate>
 
             <TreeDataTemplate DataType="treePanel:Mission"
                               ItemsSource="{Binding Paths}">
-                <TextBlock Text="{Binding Name}"/>
+                <TextBlock Text="{Binding Name}">
+                    <TextBlock.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Dodaj ścieżkę" Click="OnAddPathClick"/>
+                            <Separator/>
+                            <MenuItem Header="Usuń misję"    Click="OnDeleteClick"/>
+                            <Separator/>
+                            <MenuItem Header="Usuń zaznaczone" Click="OnDeleteSelectedClick"/>
+                        </ContextMenu>
+                    </TextBlock.ContextMenu>
+                </TextBlock>
             </TreeDataTemplate>
 
+            <!-- Ścieżka: lekkie podświetlenie gdy aktywna -->
             <TreeDataTemplate DataType="treePanel:MissionPath"
                               ItemsSource="{Binding Points}">
-                <TextBlock Text="{Binding Name}"/>
+                <Panel>
+                    <Border Background="#200078D4"
+                            CornerRadius="3"
+                            IsVisible="{Binding IsActive}"/>
+                    <TextBlock Text="{Binding Name}" Margin="4,1">
+                        <TextBlock.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Usuń ścieżkę"    Click="OnDeleteClick"/>
+                                <Separator/>
+                                <MenuItem Header="Usuń zaznaczone" Click="OnDeleteSelectedClick"/>
+                            </ContextMenu>
+                        </TextBlock.ContextMenu>
+                    </TextBlock>
+                </Panel>
             </TreeDataTemplate>
 
             <DataTemplate DataType="treePanel:PathPoint">
-                <TextBlock Text="{Binding DisplayName}"/>
+                <TextBlock Text="{Binding DisplayName}">
+                    <TextBlock.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Usuń punkt"       Click="OnDeleteClick"/>
+                            <Separator/>
+                            <MenuItem Header="Usuń zaznaczone" Click="OnDeleteSelectedClick"/>
+                        </ContextMenu>
+                    </TextBlock.ContextMenu>
+                </TextBlock>
             </DataTemplate>
 
         </TreeView.DataTemplates>

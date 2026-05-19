@@ -13,26 +13,34 @@
             ClipToBounds="True">
         <Panel>
 
-            <!-- Siatka poza transformacją — tyle nieskończone przez przesunięcie fazy -->
+            <!-- Siatka poza transformacją — skaluje spacing by dopasować zoom -->
             <local:GridOverlay GridSpacing="40"
                                OffsetX="{Binding OffsetX}"
-                               OffsetY="{Binding OffsetY}"/>
+                               OffsetY="{Binding OffsetY}"
+                               Scale="{Binding Scale}"/>
 
-            <!-- Treść przesuwana przez pan -->
+            <!-- Treść przesuwana i skalowana -->
             <Panel>
                 <Panel.RenderTransform>
-                    <TranslateTransform X="{Binding OffsetX}" Y="{Binding OffsetY}"/>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="{Binding Scale}" ScaleY="{Binding Scale}"/>
+                        <TranslateTransform X="{Binding OffsetX}" Y="{Binding OffsetY}"/>
+                    </TransformGroup>
                 </Panel.RenderTransform>
                 <canvas:PathRenderer ActivePath="{Binding ActivePath}"
-                                     SelectedPoint="{Binding SelectedPoint}"/>
+                                     SelectedPoint="{Binding SelectedPoint}"
+                                     SelectedPoints="{Binding SelectedPoints}"/>
             </Panel>
 
             <!-- Overlay na eventy myszy — bez transformacji -->
             <Canvas Name="DrawingCanvas"
                     Background="Transparent"
+                    Focusable="True"
                     PointerMoved="OnPointerMoved"
                     PointerPressed="OnPointerPressed"
-                    PointerReleased="OnPointerReleased"/>
+                    PointerReleased="OnPointerReleased"
+                    PointerWheelChanged="OnPointerWheelChanged"
+                    KeyDown="OnKeyDown"/>
 
         </Panel>
     </Border>

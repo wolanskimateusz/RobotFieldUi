@@ -7,6 +7,16 @@
         Width="1200" Height="800"
         Title="RobotFieldUi">
 
+    <Window.KeyBindings>
+        <KeyBinding Gesture="Ctrl+Z" Command="{Binding MenuBar.UndoCommand}"/>
+        <KeyBinding Gesture="Ctrl+Y" Command="{Binding MenuBar.RedoCommand}"/>
+        <KeyBinding Gesture="S" Command="{Binding Ribbon.SetToolCommand}" CommandParameter="{x:Static vm:ActiveTool.Select}"/>
+        <KeyBinding Gesture="H" Command="{Binding Ribbon.SetToolCommand}" CommandParameter="{x:Static vm:ActiveTool.Pan}"/>
+        <KeyBinding Gesture="P" Command="{Binding Ribbon.SetToolCommand}" CommandParameter="{x:Static vm:ActiveTool.AddPoint}"/>
+        <KeyBinding Gesture="M" Command="{Binding Ribbon.SetToolCommand}" CommandParameter="{x:Static vm:ActiveTool.Move}"/>
+        <KeyBinding Gesture="Delete" Command="{Binding Canvas.DeleteSelectedPointsCommand}"/>
+    </Window.KeyBindings>
+
     <Grid RowDefinitions="28,48,*,24">
         
 

@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RobotFieldUi.Views.Dialogs.MirrorDialog"
+        Title="Lustro" Width="280" Height="175"
+        CanResize="False" WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="16" Spacing="8">
+        <RadioButton x:Name="RbH" GroupName="axis" IsChecked="True"
+                     Content="Poziomo (oś X)"/>
+        <RadioButton x:Name="RbV" GroupName="axis"
+                     Content="Pionowo (oś Y)"/>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <RadioButton x:Name="RbC" GroupName="axis" Content="Kąt własny (°):"/>
+            <NumericUpDown x:Name="AngleInput"
+                           Value="45" Minimum="-180" Maximum="180"
+                           Increment="5" FormatString="0.#"
+                           Width="100" IsEnabled="False"/>
+        </StackPanel>
+        <TextBlock Text="oś przez środek zaznaczenia"
+                   FontSize="11" Foreground="#64748b"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Content="OK"     Width="80" IsDefault="True" Click="OnOk"/>
+            <Button Content="Anuluj" Width="80" IsCancel="True"  Click="OnCancel"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
